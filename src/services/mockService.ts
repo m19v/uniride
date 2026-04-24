@@ -57,6 +57,18 @@ export const mockService = {
     return JSON.parse(localStorage.getItem(STORAGE_KEYS.OFFERS) || '[]');
   },
 
+  createRideOffer: async (offer: Omit<RideOffer, 'id' | 'status'>): Promise<RideOffer> => {
+    const offers: RideOffer[] = JSON.parse(localStorage.getItem(STORAGE_KEYS.OFFERS) || '[]');
+    const newOffer: RideOffer = {
+      ...offer,
+      id: Math.random().toString(36).substr(2, 9),
+      status: 'OPEN',
+    };
+    offers.push(newOffer);
+    localStorage.setItem(STORAGE_KEYS.OFFERS, JSON.stringify(offers));
+    return newOffer;
+  },
+
   createRideRequest: async (request: Omit<RideRequest, 'id' | 'createdAt' | 'status'>): Promise<RideRequest> => {
     const rides: RideRequest[] = JSON.parse(localStorage.getItem(STORAGE_KEYS.RIDES) || '[]');
     const newRide: RideRequest = {

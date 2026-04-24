@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { LogOut, User as UserIcon, Car, MapPin, Calendar } from 'lucide-react';
 import { CreateRideRequest } from '../components/CreateRideRequest';
+import { CreateRideOffer } from '../components/CreateRideOffer';
 import { RideList } from '../components/RideList';
 
 export const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
   const [showRequestForm, setShowRequestForm] = useState(false);
+  const [showOfferForm, setShowOfferForm] = useState(false);
 
   if (!user) return null;
 
@@ -57,6 +59,11 @@ export const Dashboard: React.FC = () => {
               onSuccess={() => setShowRequestForm(false)} 
               onCancel={() => setShowRequestForm(false)} 
             />
+          ) : showOfferForm ? (
+            <CreateRideOffer 
+              onSuccess={() => setShowOfferForm(false)} 
+              onCancel={() => setShowOfferForm(false)} 
+            />
           ) : (
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 overflow-hidden relative group">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -80,7 +87,10 @@ export const Dashboard: React.FC = () => {
                   <span>Request a Ride</span>
                 </button>
               ) : (
-                <button className="w-full sm:w-auto px-8 py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all flex items-center justify-center space-x-3 active:scale-[0.98]">
+                <button 
+                  onClick={() => setShowOfferForm(true)}
+                  className="w-full sm:w-auto px-8 py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all flex items-center justify-center space-x-3 active:scale-[0.98]"
+                >
                   <Calendar size={22} />
                   <span>Post Ride Offer</span>
                 </button>
