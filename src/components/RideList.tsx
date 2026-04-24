@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { mockService } from '../services/mockService';
-import { RideRequest, RideOffer, User } from '../types';
+import type { RideRequest, RideOffer } from '../types';
 import { Clock, MapPin, User as UserIcon, CheckCircle } from 'lucide-react';
 
 interface Props {
@@ -11,7 +11,6 @@ interface Props {
 export const RideList: React.FC<Props> = ({ userId, role }) => {
   const [rides, setRides] = useState<RideRequest[]>([]);
   const [matchedOffers, setMatchedOffers] = useState<Record<string, RideOffer[]>>({});
-  const [drivers, setDrivers] = useState<Record<string, User>>({});
 
   const loadData = async () => {
     const myRides = await mockService.getMyRides(userId);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { LogOut, User as UserIcon, Car, MapPin, Calendar, Clock } from 'lucide-react';
+import { LogOut, User as UserIcon, Car, MapPin, Calendar } from 'lucide-react';
 import { CreateRideRequest } from '../components/CreateRideRequest';
 import { RideList } from '../components/RideList';
 

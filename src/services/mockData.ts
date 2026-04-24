@@ -1,4 +1,4 @@
-import { User, DriverProfile, RideRequest, RideOffer } from '../types';
+import type { User, DriverProfile, RideRequest, RideOffer } from '../types';
 
 export const SEED_USERS: User[] = [
   {

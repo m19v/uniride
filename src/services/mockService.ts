@@ -1,4 +1,4 @@
-import { User, RideRequest, RideOffer } from '../types';
+import type { User, RideRequest, RideOffer, RideStatus } from '../types';
 import { SEED_USERS, SEED_RIDE_OFFERS } from './mockData';
 
 const STORAGE_KEYS = {
