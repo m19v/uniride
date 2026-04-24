@@ -1,0 +1,7 @@
+# Add patterns for files/directories Gemini should ignore
+.git/
+node_modules/
+dist/
+build/
+.env*
+*.log
