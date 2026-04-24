@@ -11,7 +11,7 @@ export const LoginPage: React.FC = () => {
     e.preventDefault();
     const success = await login(email);
     if (!success) {
-      setError('Invalid email. Try alice@example.com or ben@example.com');
+      setError('Invalid email. Try alice@uni-due.de or ben@uni-due.de');
     }
   };
 
@@ -32,7 +32,7 @@ export const LoginPage: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400"
-              placeholder="e.g. alice@example.com"
+              placeholder="e.g. alice@uni-due.de"
               required
             />
           </div>
@@ -49,8 +49,8 @@ export const LoginPage: React.FC = () => {
         
         <div className="mt-6 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
           <p className="font-semibold mb-1">Demo accounts:</p>
-          <p>Rider: alice@example.com</p>
-          <p>Driver: ben@example.com</p>
+          <p>Rider: alice@uni-due.de</p>
+          <p>Driver: ben@uni-due.de</p>
         </div>
       </div>
     </div>

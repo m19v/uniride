@@ -19,12 +19,12 @@ Focus: No backend. Use local mock data, in-memory stores, and `localStorage` to 
 - **Mobile First**: Design for a responsive, mobile-ready UI.
 
 ## Users & Seed Data
-1. **student1 (Rider)**: Alice Park (alice@example.com) — phone +1-555-0101 — home "42 Elm St" — preferred pickup 08:00–09:00.
-2. **student2 (Driver)**: Ben Torres (ben@example.com) — phone +1-555-0202 — car "Toyota Corolla 2016" — seats 3 — home "18 Maple Ave" — availability 07:30–09:30 — price per rider $2.50.
+1. **student1 (Rider)**: Alice Park (alice@uni-due.de) — phone +1-555-0101 — home "42 Elm St" — preferred pickup 08:00–09:00.
+2. **student2 (Driver)**: Ben Torres (ben@uni-due.de) — phone +1-555-0202 — car "Toyota Corolla 2016" — seats 3 — home "18 Maple Ave" — availability 07:30–09:30 — price per rider $2.50.
 
 ## Core Features (MVP - Mocked)
 - **Auth**: Email/Password login stub, role-based UI (Rider vs Driver).
-- **Rider Flow**: Create request, view matched offers (Haversine distance + time overlap), booking request, payment modal (Stripe stub), chat, and ratings.
+- **Rider Flow**: Create request, view matched offers (Haversine distance + time overlap), booking request for University of Duisburg-Essen, payment modal (Stripe stub), chat, and ratings.
 - **Driver Flow**: Create offer, accept/reject requests, start/complete ride, view mock earnings.
 - **Matching**: Client-side logic to filter drivers by distance and time window.
 - **Notifications**: In-app toast notifications for status updates.
