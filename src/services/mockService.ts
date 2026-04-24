@@ -11,9 +11,19 @@ const STORAGE_KEYS = {
 
 export const mockService = {
   init: () => {
-    if (!localStorage.getItem(STORAGE_KEYS.USERS)) {
-      localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(SEED_USERS));
-    }
+    // Always ensure SEED_USERS are updated in the local store
+    const existingUsers: User[] = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS) || '[]');
+    
+    // Create a map of existing users by email for quick lookup
+    const userMap = new Map(existingUsers.map(u => [u.email, u]));
+    
+    // Add or update seeded users
+    SEED_USERS.forEach(seedUser => {
+      userMap.set(seedUser.email, seedUser);
+    });
+
+    localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(Array.from(userMap.values())));
+
     if (!localStorage.getItem(STORAGE_KEYS.OFFERS)) {
       localStorage.setItem(STORAGE_KEYS.OFFERS, JSON.stringify(SEED_RIDE_OFFERS));
     }
